@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Marion ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd6e0);
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+#intro{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+background:black;
+
+color:white;
+
+text-align:center;
+
+animation:fadeout 5s forwards;
+
+z-index:5;
+
+}
+
+#intro h1{
+
+font-size:50px;
+
+color:#ff4d6d;
+
+margin-bottom:20px;
+
+}
+
+#intro p{
+
+font-size:22px;
+
+}
+
+@keyframes fadeout{
+
+0%{opacity:1;}
+
+80%{opacity:1;}
+
+100%{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+}
+
+.container{
+
+display:none;
+
+width:90%;
+
+max-width:700px;
+
+background:rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 0 30px rgba(0,0,0,.3);
+
+color:white;
+
+animation:show 2s;
+
+}
+
+@keyframes show{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+img{
+
+width:200px;
+
+height:200px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid white;
+
+box-shadow:0 0 20px pink;
+
+margin-bottom:20px;
+
+}
+
+h1{
+
+margin-bottom:15px;
+
+}
+
+#typing{
+
+font-size:20px;
+
+line-height:1.7;
+
+min-height:120px;
+
+margin-bottom:20px;
+
+}
+
+#letter{
+
+display:none;
+
+background:rgba(255,255,255,.15);
+
+padding:20px;
+
+border-radius:15px;
+
+margin:20px 0;
+
+}
+
+button{
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:18px;
+
+cursor:pointer;
+
+margin:10px;
+
+transition:.3s;
+
+}
+
+#open{
+
+background:#ff4d6d;
+
+color:white;
+
+}
+
+#yes{
+
+background:#ff1744;
+
+color:white;
+
+}
+
+#no{
+
+background:white;
+
+color:#ff1744;
+
+position:absolute;
+
+}
+
+.heart{
+
+position:fixed;
+
+bottom:-20px;
+
+animation:float 5s linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes float{
+
+from{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="intro">
+
+<h1>❤️ FOR MARION ❤️</h1>
+
+<p>Every love story begins with a single hello...</p>
+
+</div>
+
+<div class="container" id="main">
+
+<img src="marion.jpg">
+
+<h1>Dear Marion ❤️</h1>
+
+<p id="typing"></p>
+
+<button id="open">
+💌 Open My Letter
+</button>
+
+<div id="letter">
+
+<p>
+
+Every time I see you,
+
+my heart smiles.
+
+Your kindness,
+
+your laugh,
+
+your beautiful smile,
+
+make every day brighter.
+
+Meeting you has been one of the best things that has happened in my life.
+
+I don't know what tomorrow holds,
+
+but I know I would love to spend more time with you.
+
+Marion...
+
+Will you be my girlfriend?
+
+❤️
+
+</p>
+
+</div>
+
+<button id="yes">
+YES ❤️
+</button>
+
+<button id="no">
+NO 🙈
+</button>
+
+<script>
+
+setTimeout(function(){
+
+document.getElementById("intro").style.display="none";
+
+document.getElementById("main").style.display="block";
+
+type();
+
+},5000);
+
+const text="From the moment I met you, something about you felt different. Every smile from you makes my day better. I made this little website because I wanted to ask you something very special. ❤️";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}
+
+}
+
+document.getElementById("open").onclick=function(){
+
+document.getElementById("letter").style.display="block";
+
+this.style.display="none";
+
+};
+
+document.getElementById("yes").onclick=function(){
+
+createHearts();
+        alert("❤️ Thank you, Marion! ❤️");
+
+        const phone = "254753090452";
+
+        const message = encodeURIComponent(
+        "❤️ Hey Keane! It's Marion. I clicked YES. You just made me smile. I'd love to be your girlfriend. 💖"
+        );
+
+        window.open(
+        "https://wa.me/"+phone+"?text="+message,
+        "_blank"
+        );
+
+};
+
+const no=document.getElementById("no");
+
+function move(){
+
+const x=Math.random()*(window.innerWidth-150);
+
+const y=Math.random()*(window.innerHeight-80);
+
+no.style.left=x+"px";
+
+no.style.top=y+"px";
+
+}
+
+no.onmouseover=move;
+no.onclick=move;
+
+function createHearts(){
+
+for(let i=0;i<60;i++){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(function(){
+
+heart.remove();
+
+},6000);
+
+}
+
+}
+
+</script>
+
+</div>
+
+</body>
+</html>
